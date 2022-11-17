@@ -3,27 +3,30 @@ export default function RegistroUsuarios(){
         alert ("Creado :)")
 
     }
-
+   
     return (
         <form>
-            <p1>Gestión de paquetes - Registro Usuarios</p1>
-            <p>
-                <label htmlFor = ""> Nombres</label>
-                <input  type ="text" />
-            </p>
-            <p>
-                <label htmlFor = ""> Usuario</label>
-                <input type ="text" />
-            </p>
-            <p>
-                <label htmlFor = ""> Contraseña</label>
-                <input type ="text" />
-            </p>
-            <p>
-                <label htmlFor = ""> Correo</label>
-                <input type ="text" />
-            </p>
+             <br />
+            <h3>Gestión de paquetes - Registro Usuarios</h3>
+            <br /> <br />
+            <div>
+                <label htmlFor = ""> Nombres</label> <br />
+                <input  type ="text" /><br />
+           
+                <label htmlFor = ""> Usuario</label><br />
+                <input type ="text" /><br />
+          
+                <label htmlFor = ""> Contraseña</label><br />
+                <input type ="text" /><br />
+           
+                <label htmlFor = ""> Correo</label><br />
+                <input type ="text" /><br />
+           
+            </div>
+            <br /> <br />
             <button onClick={crear}>Crear</button>
+            <br /> <br />
         </form>
     )
+   
 }

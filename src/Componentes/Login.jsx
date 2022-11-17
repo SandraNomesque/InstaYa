@@ -5,19 +5,24 @@ export default function Login(){
     }
     return (
         <form action ="">
-             <p></p>
-                <p1>Gestión de paquetes - Login</p1>
-                <p></p>
-                <p2><label htmlFor = ""> Registrarse</label></p2>
-            <p>
-                <label htmlFor = ""> Usuario</label>
+            <br />
+            <h3>Gestión de paquetes - Login</h3>
+            <br />
+            <p><label htmlFor = ""> Registrarse</label></p>
+           
+            <div>
+                <label htmlFor = ""> Usuario</label> 
+                <br />
                 <input type ="text" />
-            </p>
-            <p>
+                <br />
                 <label htmlFor = ""> Contraseña</label>
+                <br />
                 <input type ="text" />
-            </p>
+            </div>
+            <br /><br />
+                   
             <button onClick={login}>Login</button>
+            <br /><br />
         </form>
-    )
+    ) 
 }

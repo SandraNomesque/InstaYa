@@ -1,11 +1,10 @@
 export default function ListadoOrdenes(){
-   
     return (
         <form action ="">
-             <p></p>
-                <p1>Gestión de paquetes - Listado de Órdenes</p1>
-                <p></p>
-                <p2><label htmlFor = ""> Crear Orden </label></p2>
+             <br />
+            <h3>Gestión de paquetes - Listado de Órdenes</h3>
+            <br />
+            <p><label htmlFor = ""> Crear Orden </label></p>
             
 
             <table class="table">
@@ -51,5 +50,6 @@ export default function ListadoOrdenes(){
             </table>
 
         </form>
-    )
+    ) 
+   
 }

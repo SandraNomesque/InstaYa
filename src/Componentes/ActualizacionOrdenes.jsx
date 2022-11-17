@@ -6,39 +6,49 @@ export default function ActualizacionOrdenes() {
     }
     return (
         <form action="">
-        <p></p>
-           <p1>Gestión de paquetes - Registro Órdenes (Recogida)</p1>
-           <p></p>
-           <p>
+        <br /><br />
+        <h3>Gestión de paquetes -Actualizacion de Órdenes (Recogida)</h3>
+        <br /><br />
+           
                 <label htmlFor =" "> Fecha </label>
                 <input htmlFor ="date" />
                 <label htmlFor=" "> Hora </label>
+                <input htmlFor ="date" /> 
+                <br />
+                <label htmlFor=" "> Estado </label>
                 <input htmlFor ="date" />
-            </p>
-            <p>
+                <br />
+          
                 <label htmlFor="">Largo</label>
                 <input htmlFor ="float" />
                 <label htmlFor="">Ancho</label>
-                <input htmlFor ="Float" readOnly />
+                <input htmlFor ="Float" readOnly /><br />
                 <label htmlFor="">Alto</label>
                 <input htmlFor ="Float" readOnly />
                 <label htmlFor="">Peso</label>
                 <input htmlFor ="Float" />
-            </p>
-
-            <p><label htmlFor="">Dirección recogida</label>
-            <input htmlFor ="text" /></p>
-            <p><label htmlFor="">Ciudad recogida</label>
-            <input htmlFor ="text" /></p>
-            <p><label htmlFor="">Nombre destinatario</label>
-            <input htmlFor ="text" /></p>
-            <p><label htmlFor="">Cédula/Nit destinatario</label>
-            <input htmlFor ="text" /></p>
-            <p><label htmlFor="">Dirección entrega</label>
-            <input htmlFor ="text" /></p>
-            <p><label htmlFor="">Ciudad entrega</label>
-            <input htmlFor ="text" /></p>
-            <button onClick={actualizacionOrden}>Actualizar  </button>
+            
+            <br />
+            <br />
+            <div>
+               
+                    <label htmlFor="">Dirección recogida</label><br />
+                    <input htmlFor ="text" /> <br />
+                    <label htmlFor="">Ciudad recogida</label><br />
+                    <input htmlFor ="text" />   <br />   
+                    <label htmlFor="">Nombre destinatario</label><br />
+                    <input htmlFor ="text" /><br />
+                    <label htmlFor="">Cédula/Nit destinatario</label><br />
+                    <input htmlFor ="text" /> <br />
+                    <label htmlFor="">Dirección entrega</label><br />
+                    <input htmlFor ="text" /><br />
+                    <label htmlFor="">Ciudad entrega</label><br />
+                    <input htmlFor ="text" />
+              
+            </div>
+            <br /> <br />
+            <button onClick={actualizacionOrden}>Actualizar Orden  </button>
+            <br /> <br />
         </form>
     )
-}
+   }
