@@ -1,4 +1,5 @@
 export default function ListadoOrdenes(){
+   
     return (
         <form action ="">
              <br />
@@ -7,7 +8,7 @@ export default function ListadoOrdenes(){
             <p><label htmlFor = ""> Crear Orden </label></p>
             
 
-            <table class="table">
+            <table class="table ">
             <thead>
                 <tr>
                 <th scope="col"># Servicio </th>
@@ -20,7 +21,7 @@ export default function ListadoOrdenes(){
             </thead>
             <tbody>
                 <tr>
-                <th scope="row">1</th>
+                <th scope="row " >1</th>
                 <td>01/01/2021</td>
                 <td>Santa Marta</td>
                 <td>Calle 1 # 2-3</td>
@@ -50,6 +51,5 @@ export default function ListadoOrdenes(){
             </table>
 
         </form>
-    ) 
-   
+    )
 }
