@@ -1,17 +1,48 @@
+import {useEffect, useState} from "react"
+import { Link } from "react-router-dom"
+
 export default function ListadoOrdenes(){
-   
+  
+   //crea una variable estado para guardar la informacion 
+    const [listado, setListado]  = useState([])
+
+    //useEffect= enlaza una funcion con una variable 
+    useEffect(() => {
+        //   document.title = `You clicked ${count} times`;
+        // promesa para consumir una api los datos del servidor 
+        fetch("http://localhost:8000/listadoOrdenes/list",{
+        
+            //le decimos que le vamos a pasar un json
+            headers: {"content-type": "application/json"},
+            // el metodo
+            method: "POST",
+        }).then (res => res.json()) //then= respuesta de la promesa - res = variable que recibe la respuesta con un json, //cuando el ejecuta un json activa otra promesa por eso toca recibir otro then para que capture los datos en forma de json
+          .then(res =>{               
+            
+            if (res.estado === "ok"){
+                setListado(res.data)
+                //console.log(res.data);
+            }else {
+                alert ("Error: No se puede realizar la consulta ")
+            }
+          })
+         
+   },[])
+          
     return (
         <form action ="">
              <br />
             <h3>Gestión de paquetes - Listado de Órdenes</h3>
             <br />
-            <p><label htmlFor = ""> Crear Orden </label></p>
             
+            <div className="row ">  {/* clase fila */}
+                    <p> <Link to= {"/crearOrden"}> Crear Orden</Link></p>
+            </div>
 
-            <table class="table ">
+            <table className="table">
             <thead>
                 <tr>
-                <th scope="col"># Servicio </th>
+                <th scope="col">NumServicio </th>
                 <th scope="col">Fecha</th>
                 <th scope="col">Ciudad Entrega</th>
                 <th scope="col">Direccion Entrega</th>
@@ -20,6 +51,18 @@ export default function ListadoOrdenes(){
                 </tr>
             </thead>
             <tbody>
+
+                {/*
+                    listado.map(p => <tr key={NumServicio}>
+                        <td>{p.NumServicio}</td>
+                        <td>{p.fecha}</td>
+                        <td>{p.ciuD}</td>
+                        <td>{p.dirD}</td>
+                        <td>{p.estado}</td>
+                        
+                    </tr>)
+
+                    */  } 
                 <tr>
                 <th scope="row " >1</th>
                 <td>01/01/2021</td>
@@ -27,26 +70,7 @@ export default function ListadoOrdenes(){
                 <td>Calle 1 # 2-3</td>
                 <td>Guardado</td>
                 </tr>
-                <tr>
-                <th scope="row">2</th>
-                <td>01/01/2021</td>
-                <td>Barranquilla</td>
-                <td>Calle 4 # 5-6</td>
-                <td>Cancelado</td>
-                </tr>
-                <tr>
-                <th scope="row">3</th>
-                <td>01/01/2021</td>
-                <td>Cartagena</td>
-                <td>Calle 7 # 8-9</td>
-                <td>Cumplido</td>
-                </tr>
-                <tr>
-                <th scope="row">4</th>
-               
-                </tr>
-               
-
+            
             </tbody>
             </table>
 
