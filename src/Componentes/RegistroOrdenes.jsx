@@ -43,7 +43,7 @@ export default function RegistroOrdenes() {
 
           }).then (data => data.json()) //then= respuesta de la promesa - res = variable que recibe la respuesta con un json, //cuando el ejecuta un json activa otra promesa por eso toca recibir otro then para que capture los datos en forma de json
           .then(res =>{ 
-            
+             console.log(res);
             if (res.estado === "ok"){
                  window.location.href = res.url;
             }else {
@@ -143,7 +143,7 @@ export default function RegistroOrdenes() {
                 </div>
             </div>  
             <br /> <br />
-            <button onClick={registroOrdenes}>Crear </button>
+            <button onClick={registroOrdenes} type="button">Crear </button>
             <br /> <br />
         </form>
     )

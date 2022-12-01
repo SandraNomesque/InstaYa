@@ -1,5 +1,6 @@
 
-import {useRef} from "react"
+import {useEffect, useRef} from "react"
+import { json } from "react-router-dom";
 
 export default function ActualizacionOrdenes() {
    
@@ -17,9 +18,80 @@ export default function ActualizacionOrdenes() {
     const dirEntregaRef = useRef();
     const ciuEntregaRef = useRef();
     
-          
+    useEffect(() => {
+        const id=window.location.hash.substring(1)
+        //   document.title = `You clicked ${count} times`;
+        // promesa para consumir una api los datos del servidor 
+        fetch("http://localhost:8000/actualizacion/consulta",{
+        
+            //le decimos que le vamos a pasar un json
+            headers: {"content-type": "application/json"},
+            // el metodo
+            method: "POST",
+            body: JSON.stringify({id})
+        }).then (res => res.json()) //then= respuesta de la promesa - res = variable que recibe la respuesta con un json, //cuando el ejecuta un json activa otra promesa por eso toca recibir otro then para que capture los datos en forma de json
+          .then(res =>{               
+            
+            if (res.estado === "ok"){
+
+                fechaRef.current.value= res.fecha;
+                horaRef.current.value =userRef(res.hora);
+                estadoRef.value =res.estado;
+                largoRef.value = res.value;
+                anchoRef.value= res.ancho.value;
+                altoRef.value = useRef();
+                pesoRef .value= useRef();
+                dirRecogidaRef.value = useRef();
+                ciuRecogidaRef.value = useRef();
+                nomDestinatarioRef.value = useRef();
+                ccDestinatarioRef.value = useRef();
+                dirEntregaRef.value = useRef();
+                ciuEntregaRef.value = useRef();
+           //  guardar en cada caja    
+            }else {
+                alert ("Error: No se puede realizar la consulta ")
+            }
+          })
+         
+   },[])
    
-   function actualizacionOrdenes (){
+   function actualizacionConsulta (){
+    //captura datos
+  
+    const ccD=ccDestinatarioRef.current.value;
+    
+     
+    
+    
+   
+
+    // promesa para consumir una api los datos del servidor 
+   // fetch("http://127.0.0.1")
+   fetch("http://localhost:8000/actualizacion/consulta",{
+        //le decimos que le vamos a pasar un json
+        headers: {"content-type": "application/json"},
+        // el metodo
+        method: "POST",
+        //los valores
+        body : JSON.stringify({fecha, hora, estado, largo, ancho, alto, peso, dirR, ciuR, nomD, ccD, dirD, ciuD})
+
+      }).then (data => data.json()) //then= respuesta de la promesa - res = variable que recibe la respuesta con un json, //cuando el ejecuta un json activa otra promesa por eso toca recibir otro then para que capture los datos en forma de json
+      .then(res =>{ 
+        if (res.estado === "ok"){
+            window.location.href = res.url;
+             
+        }else {
+
+            alert ("Error: datos de prueba Actualizacion orden")
+        }
+    
+      })
+      .catch(err => alert(err))
+      .finally() 
+} 
+  
+
+function actualizacionUpdate (){
     //captura datos
     const fecha = fechaRef.current.value;
     const hora=horaRef.current.value;
@@ -34,7 +106,9 @@ export default function ActualizacionOrdenes() {
     const ccD=ccDestinatarioRef.current.value;
     const dirD=dirEntregaRef.current.value;
     const ciuD=ciuEntregaRef.current.value;
-        
+     
+    
+    
    
 
     // promesa para consumir una api los datos del servidor 
@@ -61,7 +135,8 @@ export default function ActualizacionOrdenes() {
       .catch(err => alert(err))
       .finally() 
 } 
-  
+
+
    return (
         <form action="">
                    <br /><br />
@@ -158,7 +233,7 @@ export default function ActualizacionOrdenes() {
             </div>  
 
             <br /> <br />
-            <button onClick={actualizacionOrdenes} type="button">Actualizar Orden  </button>
+            <button onClick={actualizacionUpdate} type="button">Actualizar Orden  </button>
             <br /> <br />
         </form>
     )

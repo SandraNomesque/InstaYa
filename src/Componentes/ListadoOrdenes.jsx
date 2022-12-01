@@ -21,7 +21,7 @@ export default function ListadoOrdenes(){
             
             if (res.estado === "ok"){
                 setListado(res.data)
-                //console.log(res.data);
+                console.log(listado);
             }else {
                 alert ("Error: No se puede realizar la consulta ")
             }
@@ -52,24 +52,17 @@ export default function ListadoOrdenes(){
             </thead>
             <tbody>
 
-                {/*
-                    listado.map(p => <tr key={NumServicio}>
-                        <td>{p.NumServicio}</td>
+                {
+                    listado.map(p => <tr key={p._id}>
                         <td>{p.fecha}</td>
                         <td>{p.ciuD}</td>
                         <td>{p.dirD}</td>
                         <td>{p.estado}</td>
-                        
+                        <Link to= {'/actualizacionOrdenes/#'+p._id}> Actualizar</Link>
                     </tr>)
 
-                    */  } 
-                <tr>
-                <th scope="row " >1</th>
-                <td>01/01/2021</td>
-                <td>Santa Marta</td>
-                <td>Calle 1 # 2-3</td>
-                <td>Guardado</td>
-                </tr>
+                     } 
+                
             
             </tbody>
             </table>
