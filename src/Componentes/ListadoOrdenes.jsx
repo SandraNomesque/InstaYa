@@ -54,6 +54,7 @@ export default function ListadoOrdenes(){
 
                 {
                     listado.map(p => <tr key={p._id}>
+                        <td>{p._id}</td>
                         <td>{p.fecha}</td>
                         <td>{p.ciuD}</td>
                         <td>{p.dirD}</td>
